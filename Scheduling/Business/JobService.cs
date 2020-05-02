@@ -20,6 +20,10 @@ namespace Business
             Dictionary<int, List<Job>> groups = new Dictionary<int, List<Job>>();
             int control = 0;
 
+            // entendo que para respeitar a data maxima de execucao devemos subtrair a estimativa de tempo da data maxima de execucao
+            foreach (var job in list)
+                job.MaxExecutionDate = job.MaxExecutionDate.AddHours(job.EstimatedTime * -1);
+
             // filtrando os jobs para contemplar a janela de execucao
             // ordenando pela data maxia de execucao
             foreach (var job in list.Where((r) => r.MaxExecutionDate >= dtInit && r.MaxExecutionDate <= dtEnd).OrderBy((r) => r.MaxExecutionDate))
