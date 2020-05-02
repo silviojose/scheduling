@@ -19,8 +19,8 @@ namespace ConsoleWindows
             DateTime dtEnd = DateTime.Parse("2019-11-11 12:00:00");
             int limit = 8;
 
-            #region exemplo 1 - via dictionary
-            var groups = JobService.Method1(list, limit, dtInit, dtEnd);
+            #region obtendo os jobs classificados
+            var groups = JobService.GetJobs(list, limit, dtInit, dtEnd);
             foreach (var group in groups)
             {
                 Console.WriteLine($"Group: {group.Key}");

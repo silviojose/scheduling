@@ -15,7 +15,7 @@ namespace Business
         /// <param name="dtInit">Data de Inicio da Janela de Execucao</param>
         /// <param name="dtEnd">Data de Termino da Janela de Execucao</param>
         /// <returns>Retorno do grupo</returns>
-        public static Dictionary<int, List<Job>> Method1(List<Job> list, int limit, DateTime dtInit, DateTime dtEnd)
+        public static Dictionary<int, List<Job>> GetJobs(List<Job> list, int limit, DateTime dtInit, DateTime dtEnd)
         {
             Dictionary<int, List<Job>> groups = new Dictionary<int, List<Job>>();
             int control = 0;
