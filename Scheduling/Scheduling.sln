@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWindows", "ConsoleWindows\ConsoleWindows.csproj", "{C57847D8-2033-4126-ACFB-3CC22A9EC8DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleWindows", "ConsoleWindows\ConsoleWindows.csproj", "{C57847D8-2033-4126-ACFB-3CC22A9EC8DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{DD30A81B-C91E-46E7-A23F-14F2A7A0A0DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "ViewModel\ViewModel.csproj", "{DD30A81B-C91E-46E7-A23F-14F2A7A0A0DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{62FE5E71-928E-44ED-BA60-57EEC6575B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{62FE5E71-928E-44ED-BA60-57EEC6575B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{5AC40AE9-C6E2-463A-9122-57E4B21E77DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{62FE5E71-928E-44ED-BA60-57EEC6575B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62FE5E71-928E-44ED-BA60-57EEC6575B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62FE5E71-928E-44ED-BA60-57EEC6575B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC40AE9-C6E2-463A-9122-57E4B21E77DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC40AE9-C6E2-463A-9122-57E4B21E77DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC40AE9-C6E2-463A-9122-57E4B21E77DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC40AE9-C6E2-463A-9122-57E4B21E77DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

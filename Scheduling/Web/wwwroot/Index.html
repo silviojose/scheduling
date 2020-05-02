@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            width: 100%;
+            background-image: linear-gradient(#ebebeb,#ddd);
+            font-size: 20px;
+            line-height: 40px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 0px;
+        }
+
+        p {
+            margin: 0px;
+            background-color: antiquewhite;
+            padding: 4px;
+        }
+    </style>
+    <script>
+
+        const retriveJobs = (options) => {
+
+            if (!options)
+                throw "Parametro não informado.";
+
+            ['limit', 'dtInit', 'dtEnd', 'jobs'].forEach((param) => {
+                if (!options[param])
+                    throw `Parametro '${param}' não reconhecido.`;
+            });
+
+            let seq = 1;
+            let control = 0;
+
+            let prepare = options.jobs.filter((job) => job.MaxExecutionDate >= options.dtInit && job.MaxExecutionDate <= options.dtEnd).sort((c, p) => c.MaxExecutionDate - p.MaxExecutionDate).map((job) => {
+                control = control + job.EstimatedTime;
+                if (control > options.limit) {
+                    seq++;
+                    control = 0;
+                };
+
+                job.Seq = seq;
+                return job;
+            });
+
+            let result = [...new Set(prepare.map((job) => job.Seq))].map((seq) => {
+                return prepare.filter((job) => job.Seq === seq);
+            });
+
+            return result;
+        };
+
+        let jobs = [{
+            ID: 1,
+            Description: "Importação de arquivos de fundos",
+            MaxExecutionDate: new Date("2019-11-10 12:00:00"),
+            EstimatedTime: 2
+        }, {
+            ID: 2,
+            Description: "Importação de dados da Base Legada",
+            MaxExecutionDate: new Date("2019-11-11 12:00:00"),
+            EstimatedTime: 4
+        }, {
+            ID: 3,
+            Description: "Importação de dados de integração",
+            MaxExecutionDate: new Date("2019-11-11 08:00:00"),
+            EstimatedTime: 6
+        }];
+
+        let result = retriveJobs({ jobs: jobs, limit: 8, dtInit: new Date("2019-11-10 09:00:00"), dtEnd: new Date("2019-11-11 12:00:00") });
+        console.log(result);
+
+    </script>
+
+</head>
+<body>
+
+    <h1>Projeto de Teste para Processo Seletivo</h1>
+    <p>Favor, acessar o console do navegador para visualizar os dados.</p>
+
+</body>
+</html>
