@@ -39,17 +39,26 @@
             let seq = 1;
             let control = 0;
 
+            // filtrando para desconsiderar jobs fora do janela de execucao e ordenando utilizada a Data Maxima de Execucao
             let prepare = options.jobs.filter((job) => job.MaxExecutionDate >= options.dtInit && job.MaxExecutionDate <= options.dtEnd).sort((c, p) => c.MaxExecutionDate - p.MaxExecutionDate).map((job) => {
+
+                // somando a variavel de controle, e ela que nos indicara quando inaugurar um novo grupo
                 control = control + job.EstimatedTime;
+
+                // quando o controle for maior que o limite informado, inaugurar um novo grupo e reiniciar o controle
                 if (control > options.limit) {
                     seq++;
                     control = 0;
                 };
 
+                // carimbando no job qual o grupo que ele pertencera
                 job.Seq = seq;
+
+                // retornando o job agora classificado
                 return job;
             });
 
+            // obter somente os grupos gerado e retornar um novo vetor de cada grupo
             let result = [...new Set(prepare.map((job) => job.Seq))].map((seq) => {
                 return prepare.filter((job) => job.Seq === seq);
             });
